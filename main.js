@@ -67,28 +67,28 @@ function redPinkFamilies() {
 function familySearch() {
   // Display Name and Family of all Colors that Match a User Provided Family Name. Also Output a Count of Colors Found.
   outputEl.innerHTML = "<h3>Family Search</h3>";
-  let outputStr = "";
+  let count = 0;
   input = prompt("Enter FAMILY of color:");
   for (let i = 0; i < colorData.length; i++) {
-    if (colorData[i].family.includes(input)) {
-      outputStr += `${colorData[i].name} - ${colorData[i].family}<br>`;
+    if (colorData[i].family === input) {
+      outputEl.innerHTML += `${colorData[i].name} - ${colorData[i].family}<br>`;
+      count++;
     }
   }
-  outputEl.innerHTML = outputStr;
+  outputEl.innerHTML += count;
 }
 
 function startLetterSearch() {
   // Display Name of all Colors that Match a User Provided Starting Letter. Also Output a Count of Colors Found.
   outputEl.innerHTML = "<h3>Start Letter Search</h3>";
   let count = 0;
-  let outputStr = "";
+  // let outputStr = "";
   input = prompt("Enter first letter of color name:");
   for (let i = 0; i < colorData.length; i++) {
     if (colorData[i].name[0] == input) {
-      outputStr += `${colorData[i].name}<br>`;
+      outputEl.innerHTML += `${colorData[i].name}<br>`;
       count++;
     }
-    outputEl.innerHTML = count;
   }
-  outputEl.innerHTML = outputStr;
+  outputEl.innerHTML += count;
 }
